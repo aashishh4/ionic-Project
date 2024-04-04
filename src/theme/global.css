@@ -1,0 +1,1529 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+iframe {
+  margin: 0;
+  border: none;
+}
+.w-full {
+  width: 100%;
+}
+
+:host(.button-solid) {
+  --box-shadow: none;
+}
+/* Header */
+
+.LogoGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.LogoGroup .mainLogo {
+  width: 35px;
+}
+
+.LogoGroup .logoTag {
+  height: 30px;
+  object-fit: contain;
+}
+
+.IconBtn {
+  width: 40px;
+  min-width: 40px;
+  height: 40px !important;
+  min-height: auto;
+  --overflow: visible;
+ 
+}
+.SerchBtn {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+}
+
+.IconBtn::part(native) {
+  padding: 0;
+}
+
+.IconBtn img {
+  width: 24px;
+}
+.searchBar{
+  position: relative;
+}
+
+/* Header end */
+
+/* Footer */
+
+.FooterTab {
+  --background: #f2f2f2;
+  border: 0;
+  padding: 8px 0px;
+}
+
+.TabIcon {
+  width: 25px;
+  margin-bottom: 5px;
+}
+
+/* Footer end */
+
+/* Titles */
+
+.TitleHead {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.TitleHead ion-title {
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+.TitleHead ion-title.ion-color-dark {
+  color: var(--ion-color-dark);
+}
+
+.TitleHead ion-text {
+  font-size: 14px;
+  white-space: normal;
+  line-height: 20px;
+}
+
+/* Sub Category Title */
+
+.CategoryInfoTitle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.subCate-thumb {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 12px;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 65px;
+}
+
+.subCate-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.TitleHead .subCate-details ion-title {
+  color: var(--ion-color-dark);
+}
+
+.subCate-details span {
+  color: #666;
+}
+
+.subCateTab {
+  border-bottom: 5px solid #f2f2f2;
+}
+
+.subCateTab::-webkit-scrollbar {
+  height: 0;
+}
+
+.subCateTab ion-segment-button::part(native) {
+  padding: 16px;
+}
+
+.subCategoryCard {
+  width: 65px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subCategoryThumb {
+  width: 65px;
+  min-width: 65px;
+  height: 65px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.subCategoryTitle {
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 32px;
+  color: #515151;
+}
+
+/* Sub Category Title end */
+
+/* Titles end */
+
+/* Product */
+
+.ProductCard {
+  margin: 6px;
+  box-shadow: none;
+  position: relative;
+  padding: 10px;
+  height: 100%;
+}
+
+.ProductCard::part(native) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ProductThumb {
+  padding: 10px 25px;
+  position: relative;
+}
+
+.MainProductThumb {
+  display: flex;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.SmartKitchen {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.counter {
+  position: relative;
+}
+
+.counter span {
+  position: absolute;
+  top: -14px;
+  right: -8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+}
+
+.SmartKitchen img.icon-img {
+  width: 20px;
+}
+
+.BookMark {
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+.manage-product .swiper  {
+  padding-right: 20%;
+}
+
+@media (max-width: 320px) {
+  .manage-product .swiper  {
+    padding-right: 0;
+  }
+}
+
+.ProductDetails {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.ProductTitle {
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: left;
+  line-height: 18px;
+  min-height: 36px;
+}
+
+.ProductBrandname {
+  font-size: 14px;
+  text-align: left;
+  font-weight: 600;
+  display: block;
+  color: #111;
+}
+
+.PriceRating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CurrentPrice {
+  line-height: normal;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.RateDesign {
+  font-weight: 600;
+  margin: 0;
+  padding: 5px 10px;
+  height: auto;
+  color: #fff;
+  background: #ffc10e;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.RateDesign span {
+  line-height: normal;
+}
+
+.RateDesign ion-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.OfferInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.OldPrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.offerBedge {
+  font-weight: 600;
+  margin: 0;
+  border-radius: 5px;
+  padding: 5px 5px;
+  height: auto;
+  color: #00a94f;
+  background: #e6f6f1;
+  font-size: 10px;
+  line-height: normal;
+}
+
+.AddToCartBtn {
+  margin: auto 0 0;
+  --border-color: #999;
+  --border-width: 1px;
+}
+
+.AddToCartBtn::part(native) {
+  padding: 0 20px;
+}
+
+.addText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #125b7b;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.addText ion-icon {
+  color: #125b7b;
+}
+
+/* Category Product */
+
+.CategoryCard {
+  text-align: center;
+  margin: 0;
+  box-shadow: none;
+  padding: 15px;
+}
+
+.CategoryCard::part(native) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.CategoryThumb {
+  padding: 25px;
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 100%;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+
+.CategoryThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.CategoryTitle {
+  font-size: 18px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Category Product end */
+
+/* Product end */
+
+/* Modal Popup */
+
+.loginModal::part(content) {
+  height: auto;
+  margin-top: auto;
+  border-radius: 30px 30px 0 0;
+  overflow: visible;
+  background: #efeff1;
+}
+
+.ForgotModal::part(content) {
+  height: auto;
+  border-radius: 30px;
+  background: #efeff1;
+  width: 80%;
+}
+
+.loginModal::part(backdrop),
+.ForgotModal::part(backdrop) {
+  opacity: 0.8 !important;
+}
+
+.loginContainer {
+  padding: 0 35px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginContainer .closeButton {
+  margin: -20px auto 0;
+  width: 40px;
+  height: 40px;
+  --border-radius: 3px;
+  --background: #fff;
+}
+
+.loginContainer .closeButton ion-icon {
+  fill: var(--ion-color-primary);
+}
+
+.loginContainer .title {
+  text-align: center;
+  display: block;
+  padding: 30px 0px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.loginForm {
+  width: 100%;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginInput {
+  position: relative;
+}
+
+.loginInput img {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+
+.loginInput ion-input input {
+  padding-left: 50px !important;
+}
+
+.forgotPass {
+  font-size: 13px;
+  padding: 10px 0;
+  color: #515151;
+}
+
+.contactNumber-inputGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 20px;
+  width: 100%;
+  max-width: 270px;
+}
+
+.contactNumber-inputGroup ion-text {
+  font-size: 22px;
+}
+
+.contactNumber-inputGroup ion-text.error-text {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #ff0000;
+}
+
+.loginContainer ion-input {
+  --padding-top: 10px;
+  --padding-end: 15px;
+  --padding-bottom: 10px;
+  --padding-start: 15px;
+  --background: #fff;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.loginContainer ion-input input {
+  min-height: 44px;
+}
+
+.OTPGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 270px;
+  margin: auto;
+}
+
+.OTPInput {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.OTPInput ion-input {
+  min-width: 44px;
+  max-width: 44px;
+  border-radius: 0;
+  --padding-top: 5px;
+  --padding-end: 5px;
+  --padding-bottom: 5px;
+  --padding-start: 5px;
+  text-align: center;
+}
+
+.OTPInput ion-input input {
+  text-align: center;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 15px;
+}
+.btnGroup img {
+  width: 17px;
+}
+
+.btnGroup ion-button {
+  margin: 0;
+  width: 100%;
+  min-width: fit-content;
+  min-height: 44px;
+}
+
+.btnGroup ion-button.yallow-btn {
+  --background: #f3ae26;
+}
+
+.resendCode {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #515151;
+}
+
+.resendCode ion-text {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+}
+
+.resendCode ion-button::part(native) {
+  padding: 5px;
+  letter-spacing: 0;
+  font-weight: bold;
+}
+
+.orDivider {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+}
+
+.orDivider:after {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background: #ddd;
+}
+
+.orDivider:before {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background: #ddd;
+}
+
+.orDivider span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb;
+}
+
+.SignupGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignupSocials {
+  display: flex;
+  gap: 30px;
+}
+
+.SignupSocials ion-button {
+  margin: 0;
+  height: auto;
+}
+
+.SignupSocials ion-button::part(native) {
+  padding: 0;
+}
+
+.SignupSocials ion-button img {
+  height: 34px;
+}
+
+.SignupGroup ion-text {
+  font-size: 18px;
+  color: #515151;
+}
+
+.TermsGroup {
+  margin: 30px -30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.checkGroup ion-checkbox {
+  min-width: fit-content;
+}
+
+.checkGroup ion-text {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.checkGroup ion-text ion-text {
+  color: #1a42ba;
+}
+
+.checkGroup ion-text ion-button::part(native) {
+  padding: 0;
+}
+
+.ForgotModal .loginContainer {
+  padding: 0 30px 30px;
+}
+
+.ForgotModal .loginForm {
+  margin: 0;
+  gap: 20px;
+}
+
+.ForgotModal .btnGroup {
+  justify-content: center;
+}
+
+.ForgotModal .btnGroup ion-button {
+  width: fit-content;
+}
+
+@media (max-width: 375px) {
+  .checkGroup ion-text {
+    font-size: 12px;
+  }
+
+  .checkGroup ion-text ion-button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .loginContainer .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 320px) {
+  .loginContainer .title {
+    padding: 20px 0px;
+    font-size: 16px;
+  }
+
+  .contactNumber-inputGroup ion-input input {
+    min-height: 40px;
+  }
+
+  .OTPInput ion-input {
+    min-width: 40px;
+    max-width: 40px;
+  }
+
+  .OTPInput ion-input input {
+    min-height: 40px;
+  }
+
+  .orDivider span,
+  .resendCode {
+    font-size: 14px;
+  }
+
+  .SignupGroup ion-text {
+    font-size: 16px;
+  }
+
+  .checkGroup ion-text,
+  .checkGroup ion-text ion-button {
+    font-size: 10px;
+  }
+
+  .SignupGroup {
+    gap: 15px;
+    margin: 0 0 20px;
+  }
+}
+
+/* Modal Popup end */
+
+/* globle */
+
+.bottom-shadow {
+  box-shadow: 0 5px 0 #f2f2f2;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.dark {
+  color: var(--ion-color-dark);
+}
+
+.header-md::after {
+  display: none;
+}
+
+ion-button {
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 600;
+  letter-spacing: 0;
+  min-height: 44px;
+}
+
+ion-button.button-default {
+  min-height: auto;
+  --box-shadow: none;
+}
+
+/* ion-button img {
+   width: 20px;
+} */
+
+ion-button .button-inner {
+  gap: 10px !important;
+}
+
+ion-button ion-icon::slotted(ion-icon[slot="start"]) {
+  margin-right: 10px;
+}
+
+ion-button.button-outline {
+  --border-width: 1px;
+}
+
+.flex {
+  display: flex;
+}
+
+.mr-05 {
+  margin-right: 5px;
+}
+
+.px-6 {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+/* globle end */
+
+/* swiper */
+
+.swiper-pagination {
+  position: unset;
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid var(--ion-color-primary);
+  opacity: 1;
+  background: transparent !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--ion-color-primary) !important;
+}
+
+/* Fill segment */
+
+.FillSegment ion-segment-button {
+  color: var(--ion-color-primary);
+  text-transform: capitalize;
+  font-size: 16px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.FillSegment ion-segment-button::part(indicator) {
+  height: 48px;
+}
+
+.FillSegment ion-segment-button::part(indicator-background) {
+  height: 100%;
+}
+
+.FillSegment ion-segment-button.segment-button-checked {
+  color: #fff;
+}
+
+/* Fill segment end */
+
+/* review card */
+
+.reviewsCard {
+  background-color: #f8f6f4;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  margin: 0 0 15px;
+}
+
+.reviewDetails {
+  display: flex;
+  gap: 15px;
+}
+
+.reviewThumb {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.reviewThumb img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.reviewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reviewTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.reviewName-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reviewName-info ion-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.reviewName-info span {
+  font-size: 13px;
+  color: #555;
+}
+
+.ratingStar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reviewDescription ion-text {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* review card end */
+
+/* recipe card */
+
+.recipeCard {
+  margin: 10px;
+  background: #f8f6f4;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.recipeHead {
+  display: flex;
+  gap: 15px;
+  padding: 12px;
+}
+
+.recipeHead .reviewName-info span {
+  color: var(--ion-color-primary);
+}
+
+.recipeMainThumb {
+  width: 100%;
+  line-height: 0;
+  height: 150px;
+}
+
+.recipeMainThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipeDetails {
+  padding: 12px;
+}
+
+.recipeDetails .title {
+  font-size: 16px;
+  display: block;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 0 5px;
+}
+
+.recipeDetails .description {
+  display: block;
+  font-size: 14px;
+  margin: 0 0 15px;
+}
+
+.LevelInfo {
+  font-size: 14px;
+}
+
+.lavelRating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lavelRating .IconBtn {
+  width: 32px;
+  min-width: 32px;
+  height: 32px !important;
+}
+
+.lavelRating .IconBtn {
+  width: 32px;
+  min-width: 32px;
+  height: 32px !important;
+}
+
+/* QtyBlock */
+
+.QtyBlock {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cfd8de;
+  padding: 5px 10px;
+  border-radius: 30px;
+  margin-left: auto;
+}
+
+.QtyBlock .IconBtn {
+  width: 20px;
+  min-width: 20px;
+  height: 20px !important;
+}
+
+.QtyBlock ion-input {
+  min-width: 30px;
+  text-align: center;
+  min-height: 20px;
+  font-size: 12px;
+  width: 30px;
+}
+
+.QtyBlock ion-input input {
+  padding: 0 !important;
+}
+
+.QtyBlock .IconBtn ion-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* QtyBlock end */
+
+.CouponInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 50px;
+}
+.ApplyBtn {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  z-index: 999;
+}
+.CouponGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.BgColor {
+  background: #e8edf7;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: #3d6fe0;
+}
+.Divider {
+  width: 92%;
+  display: block;
+  height: 1px;
+  background: #000;
+  margin: auto;
+}
+.AddressBlock {
+  display: flex;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+.AddressSearch {
+  --box-shadow: none;
+  --border-radius: 10px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.AddressSearch .searchbar-input-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.searchbar-input-container ion-icon {
+  display: none;
+}
+.AddAddress {
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+}
+.AddAddress .Address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+.AddressMainBlock {
+  background: #fff;
+  box-shadow: 0px -19px 10px #ccc;
+  border-radius: 15px;
+}
+.FlexCol {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.SlidesRecipes img {
+  width: 100%;
+}
+/* .CustomGap {
+   gap: 10px;
+} */
+.RecipePro img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  position: relative;
+}
+.RecipePro {
+  height: 100%;
+  width: 100%;
+}
+.TimeingBar {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  left: 20px;
+  right: 20px;
+  background: var(--ion-color-primary);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #fff;
+}
+.ReciRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.RecentUserImg {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.BottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.RecentMeta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.TitelMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+.commenbar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.FlameFire ion-icon {
+  color: red;
+}
+.TimeMeta ion-icon {
+  color: green;
+}
+.CustomGaps {
+  margin: 0px;
+  box-shadow: none;
+  position: relative;
+  padding: 10px;
+  height: 100%;
+}
+.RecipiPros img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.UserMetas ion-title {
+  font-size: 14px;
+}
+.UserMetas ion-label {
+  font-size: 11px;
+}
+.BootomViewCart {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 10px #ccc;
+  z-index: 999;
+}
+.FlexCols {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.FlexPro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.BootomViewCart .addButn {
+  align-items: center;
+}
+.addButn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.MenuMainLogo {
+  width: 50px;
+}
+.MenuHead ion-toolbar {
+  --background: #fff;
+  padding: 0;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 0px 0px 15px 15px;
+}
+.BgNone {
+  background: none;
+}
+#cart-page ion-title {
+  font-size: 16px;
+}
+.AddressText {
+  font-size: 12px;
+}
+.PolicyText {
+  font-size: 14px;
+  margin-top: 5px;
+}
+.padd-80 {
+   padding-bottom: 80px;
+}
+
+/* Profile */
+.profileImg{
+   display: flex;
+   justify-content: center;
+   position: relative;
+}
+.profileImg img{
+   width: 100%;
+   border-radius: 50%;
+   max-width: 100px;
+}
+.profile-content{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   gap: 10px;
+   justify-content: center;
+   position: relative;
+   padding-top: 30px;
+}
+.profile-content h1{
+   font-size: 18px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 15px;
+
+}
+.profile-content  h5{
+    font-size: 14px;
+    font-weight: 400;
+    color: #bd130a;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.profile_test h1{
+   font-weight: bold;
+   letter-spacing: 1px;
+   font-size: 18px;
+}
+.profile_test h4{
+   text-align: center;
+   font-size: 16px;
+   margin-top: 10px;
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   gap: 10px;
+   justify-content: center;
+}
+.profile_test h4 span{
+   color: #bd130a;   
+}
+.profile_test h4 img{
+   max-width: 20px;
+   width: 100%;
+}
+.Profile-list{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   border-bottom: 1px solid #ddd;
+   padding: 14px 0px;
+}
+.last-child{
+   border:none;
+}
+
+.Profile-list  p{
+   text-align: center;
+   color: #bd130a;   
+}
+.EditImg {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 11px;
+   position: absolute;
+   top: 49px;
+   right: 1px;
+   background: #ffffff;
+   padding: 8px;
+   border-radius: 50px;
+   border: 1px solid #ccc;
+}
+label.EditImg img {
+  max-width: 12px;
+}
+.image-upload > input
+{
+   display: none;
+}
+/* Order-list */
+.order-list{
+   border: 1px solid #bd130a;
+   border-radius: 5px;
+}
+.order-address{
+   padding-right: 60px;
+}
+.order-btn{
+   display: flex;
+   gap: 10px;
+}
+.order-btn ion-button{
+   min-height: 35px !important;
+}
+/* wish-list */
+.wish-list{
+   display: flex;
+   flex-direction: column;
+}
+.wish-list h5{
+   color: #bd130a;
+}
+.wish-text{
+   padding: 0px 20px;
+}
+/* change password */
+.Chng-input ion-input{
+   border: 1px solid #efeff1;
+   border-radius: 5px;
+   margin: 20px 0px;
+ 
+}
+.Chng-input ion-input input{
+   padding-left: 20px !important;
+   
+}
+.Change-Password{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.PswdloginForm {
+   width: 100%;
+   margin: 0 0 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.reset-btn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+/* Edit Profile */
+.profile-upload > input
+{
+   display: none;
+}
+
+.profile-upload {
+   border: 1px solid #cccccc75;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 30px;
+   align-items: center;
+   margin: auto;
+   border-radius: 6px;
+}
+label.EditProfile img {
+   max-width: 28px;
+}
+.Profile-input{
+   border: 1px solid #ccc;
+   padding: 15px 10px;
+   border-radius: 5px;
+   margin-top: 15px;
+}
+.Profile-input ion-input{
+   border: 1px solid rgba(0, 0, 0, 0.12);
+   border-radius: 5px;
+   width: 100%;
+ margin-top: 10px;
+}
+.Profile-input ion-input input {
+   padding-left: 15px !important;
+   font-size: 12px !important;
+}
+.Profile-input ion-input input[type="date"]{
+   color: #00000069;
+}
+
+.Profile-input ion-label span{
+ color: #bd130a;
+ padding-left: 3px;
+ font-size: 18px;
+}
+.Profile-input ion-select{
+    border: 1px solid rgba(0, 0, 0, 0.12);
+   border-radius: 5px;
+   width: 100%;
+ margin-top: 10px;
+ font-size: 12px !important;
+}
+.UpdateBtn{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 0px;
+}
+.Radio-box{
+   border-bottom: 1px solid #ccc;
+}
+.Radio-box h5{
+   padding-bottom: 10px;
+   font-size: 16px;
+}
+.textAreaField h5{
+   font-size:16px;
+}
+.RadioField{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.RadioBtn{
+   display: flex;
+   gap: 20px;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.RadioBtn ion-radio{
+  height: 15px;
+    width: 15px;
+}
+.textAreaField ion-textarea{
+   border: 1px solid rgba(0, 0, 0, 0.12);
+   border-radius: 5px;
+   width: 100%;
+   min-height: 150px;
+}
+.Pofile-Accordian ion-icon{
+   font-size: 14px;
+}
+.Pofile-Accordian   ion-item button{
+   padding: 0;
+}
+.Pofile-Accordian{
+   border-bottom: 1px solid #cccccc96;
+}
+.edit-profile-box ion-label{
+   font-size: 17px;
+  /* padding-bottom: 80px; */
+}
+
+.text-button::part(native) {
+  padding: 0;
+}

@@ -1,0 +1,71 @@
+
+
+.boxshadow{
+    box-shadow: 0px 7px 40px -23px rgba(0,0,0,0.75);
+}   
+
+.paymentcheckbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bg-gree ion-content{
+    background-color: #F7F5FA;
+}
+
+.paylogo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    max-width: 50px !important;
+}
+
+.paymentlist{
+    padding: 12px;
+    border-bottom:1px solid #e8e8e8;
+}
+
+
+.paymentrow{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.paylogo img{
+    max-width: 50px;
+    padding: 10px;
+    width: 100%;
+}
+
+.paycontent{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+}
+
+.paycontent ion-text:first-child{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.paycontent ion-text:last-child{
+    color: #b4b4b4;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+}
+
+.backgroundClrr{
+    background: #f7f5fa;
+}
+
+.headingtext{
+    padding-top: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}

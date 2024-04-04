@@ -1,0 +1,17 @@
+{
+  "appId": "io.gotochef.app",
+  "appName": "gotochef",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "androidScaleType": "CENTER_CROP",
+      "splashImmersive": true,
+      "backgroundColor": "#ffffff"
+    }
+  },
+  "cordova": {}
+}

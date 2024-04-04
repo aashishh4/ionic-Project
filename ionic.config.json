@@ -1,0 +1,7 @@
+{
+  "name": "gotochef",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

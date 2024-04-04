@@ -1,0 +1,10 @@
+.splashContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.splashContainer .logo {
+    width: 190px;
+}
