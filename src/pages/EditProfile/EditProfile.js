@@ -21,6 +21,7 @@ import {
   IonHeader,
   IonTitle,
   IonModal,
+  useIonLoading,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { ErrorMessage, Form, Formik } from "formik";
@@ -28,6 +29,8 @@ import * as Yup from "yup";
 import axios from "axios";
 
 const EditProfile = () => {
+  const [present, dismiss] = useIonLoading();
+
   const [userProfileData, setUserProfileData] = useState({});
   // console.log('userProfileData',userProfileData)
   const [showModal, setShowModal] = useState(false);
@@ -48,13 +51,15 @@ const EditProfile = () => {
   // console.log("formValues", formValues)
   const [stateName, setStateName] = useState("");
   // console.log('stateName', stateName)
+  const [updateProfile,setupdateProfile]=useState({});
+  // console.log("updateProfile",updateProfile)
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     avatar: Yup.string().required("Profile picture is required"),
     lastName: Yup.string().required("Last Name is required"),
     // email: Yup.number().required("Email is required"),
-    number: Yup.string()
+    number: Yup.string() 
       .matches(
         /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im,
         "Enter valid contact number"
@@ -66,12 +71,12 @@ const EditProfile = () => {
   });
 
   const userProfile = async () => {
+    
     try {
-
+     
       const response = await axios.get(` http://20.207.207.62/api/user-dashboard`);
       // console.log(" userProfile", response)
       setUserProfileData(response?.data?.user_dashboard?.user_form_data);
-
       setFormValues({
         avatar: response?.data?.user_dashboard?.user_form_data?.avatar || "",
         name: response?.data?.user_dashboard?.user_form_data?.first_name || "",
@@ -85,6 +90,7 @@ const EditProfile = () => {
       });
     } catch (e) {
       console.log(e);
+      
     }
   };
 
@@ -128,6 +134,7 @@ const EditProfile = () => {
   }, [userProfileData]);
 
   const profileSave = async (values) => {
+    present()
     try {
       const formdata = new FormData();
       formdata.append("firstName", values.name);
@@ -140,6 +147,8 @@ const EditProfile = () => {
       // console.log("formdata",values) 
       const response = await axios.post("http://20.207.207.62/api/user-update-personal-info", formdata);
       // console.log('profileSave', response);
+      setupdateProfile(response?.data?.user_data)
+      dismiss()
 
     } catch (err) {
       console.error(err);

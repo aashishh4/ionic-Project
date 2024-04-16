@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   IonButton,
   IonCard,
@@ -50,9 +48,12 @@ const Product = () => {
   const [AllProduct, setAllProduct] = useState({});
   const [selectedTab, setSelectedTab] = useState("details");
   const history = useHistory();
+  const [presentLoading] = useIonLoading();
+
   // console.log("selectedTab", selectedTab)
   // console.log("AllProduct", AllProduct)
   // console.log("productdetails", productdetails);
+  // console.log("id", id)
 
   const ProductDetail = async () => {
     try {
@@ -72,7 +73,7 @@ const Product = () => {
 
 
   const handleTabChange = (event) => {
-    setSelectedTab(event.detail.value);//doute
+    setSelectedTab(event.detail.value);
   };
 
   function renderRatingStars(rating) {
@@ -89,10 +90,42 @@ const Product = () => {
   const goBack = () => {
     history.goBack();
   };
+  
+  const handleAdd = () => {
+    if (productdetails.product_variant_result && productdetails.product_variant_result.length > 0) {
+      const obj = {
+        product_id: productdetails.id,
+        quantity: 1,
 
-  function handleAdd(data) {
-    addToCart(data)
-  }
+
+        productName: productdetails.slug,
+        images: productdetails.images,
+        brand_name: productdetails.brand_name,
+
+        product_variant: [{
+          main_price: productdetails.product_variant_result[0]?.main_price,
+          offer_price: productdetails.product_variant_result[0]?.offer_price,
+        },{
+          main_price: productdetails.product_variant_result[0]?.main_price,
+          offer_price: productdetails.product_variant_result[0]?.offer_price,
+        }]
+
+      };
+      presentLoading({
+        message: "Adding to cart...",
+        translucent: true,
+        duration: 1000 
+      }).then(() => {
+        addToCart(obj);
+      });
+     
+    } else {
+      console.error("Product variant result is undefined or empty.");
+    }
+  };
+
+
+
 
   return (
 
@@ -227,7 +260,7 @@ const Product = () => {
                             color="warning"
                           >
                             <div className="flex ion-justify-content-between ion-align-items-center w-full"
-                              onClick={() => handleAdd(productdetails)}>
+                              onClick={() => handleAdd()}>
                               AddDD
                             </div>
                           </IonButton>
@@ -501,11 +534,11 @@ const Product = () => {
                         className="flex ion-justify-content-center ion-align-items-center"
                       >
                         <IonButton color="medium">
-                        <IonIcon slot="start"/>
-                        Write a Review
-                      </IonButton>
+                          <IonIcon slot="start" />
+                          Write a Review
+                        </IonButton>
                       </IonCol>
-                    </IonRow>               
+                    </IonRow>
                   </IonGrid>
                 )}
               </IonCol>

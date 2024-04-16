@@ -17,6 +17,7 @@ import axios from "axios";
 const MainCategory = () => {
   const [productData, setProductData] = useState([]);
   const [present, dismiss] = useIonLoading();
+
   // console.log("CategoriesList",productData)
 
 
@@ -55,7 +56,7 @@ const MainCategory = () => {
                 <IonCol size="6" key={i}>
                   <IonCard
                     className="CategoryCard"
-                    routerLink={`/category/${item.slug}`//doute
+                    routerLink={`/category/${item.slug}`
                   }
                   >
                     <div className="CategoryThumb">

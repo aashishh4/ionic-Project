@@ -14,6 +14,7 @@ import {
   IonRow,
   IonText,
   IonTitle,
+  useIonLoading,
 } from "@ionic/react";
 import styles from "./Home.module.css";
 import "./Home.css";
@@ -29,6 +30,8 @@ import axios from "axios";
 import { useAuth } from "../contexts/CartContext";
 
 const ViewTrendingProduct = () => {
+  const [presentLoading] = useIonLoading();
+
   const { addToCart }=useAuth();
 
   const [ViewTrendingProduct, setViewTrendingProduct] = useState([])
@@ -46,10 +49,15 @@ const ViewTrendingProduct = () => {
     TrendingApidata();
   }, []);
    
-  function handleAdd(item){
-    addToCart(item)
+  function handleAdd(data) {
+    presentLoading({
+      message: "Adding to cart...",
+      translucent: true,
+      duration: 1000 
+    }).then(() => {
+      addToCart(data);
+    });
   }
-
 
   return (
     <IonPage id="home-page" className={styles.homePage}>

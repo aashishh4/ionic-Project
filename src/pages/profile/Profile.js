@@ -17,13 +17,12 @@ import {
 import axios from "axios";
   
   const Profile = () => {
-   const [selectTab,setSelecttab]=useState('Personal')
-  //  console.log('selectTab',selectTab)
+  
+   
     const [userProfileData, setUserProfileData] = useState({});
-
-    function handletab(event){
-      setSelecttab(event.detail.value)
-     }
+    const [selectTab,setSelectTab]=useState("parsonal")
+    // console.log("selectTab",selectTab)
+    
   
     const userProfile = async () => {
       try {
@@ -38,7 +37,10 @@ import axios from "axios";
     useEffect(() => {
       userProfile();
     }, []);
-  
+
+   const handleTab =(event)=>{
+    setSelectTab(event.detail.value)
+   }
     return (
       <IonPage>
         <Header />
@@ -96,29 +98,29 @@ import axios from "axios";
                   <IonText>state:{userProfileData.state_name}</IonText>
                 </div>
                 </IonCol>
-              
-           
             </IonRow>
           </IonGrid>
+          
           <IonGrid className="ion-no-padding">
             <IonRow className="Profile-tab ion-margin">
               <IonCol size="12">
               <IonSegment
               value={selectTab}
-              onIonChange={handletab}
+              onIonChange={handleTab}
+              className="personalTab"
               >
-                <IonSegmentButton value={"Personal"}>
-                  <IonLabel>parsonal</IonLabel>
+                <IonSegmentButton value="parsonal">
+                  <IonLabel>PARSONAL</IonLabel>
                 </IonSegmentButton>
-                <IonSegmentButton value={"SavedContent"}>
-                  <IonLabel>SavedContent</IonLabel>
+                <IonSegmentButton value="savedcontent">
+                  <IonLabel>SAVEDCONTENT</IonLabel>
                 </IonSegmentButton>
-                <IonSegmentButton value={'Leaderboard'}>
-                  <IonLabel>Leaderboard</IonLabel>
+                <IonSegmentButton value="leaderboard">
+                  <IonLabel>LEADERBOARD</IonLabel>
                 </IonSegmentButton>
               </IonSegment>
   
-                {selectTab === "Personal" && (
+                {selectTab === "parsonal" && (
                   <IonGrid>
                     <IonRow className="">
                       <IonCol size="4">
@@ -177,8 +179,8 @@ import axios from "axios";
                     </IonRow>
                   </IonGrid>
                 )}
-                {selectTab === "SavedContent" && <div className="ion-padding">Coming Soon....</div>}
-                {selectTab === "Leaderboard" && <div className="ion-padding">Coming Soon.....</div>}
+                {selectTab === "savedcontent" && <div className="ion-padding">Coming Soon....</div>}
+                {selectTab === "leaderboard" && <div className="ion-padding">Coming Soon.....</div>}
               </IonCol>
             </IonRow>
           </IonGrid>

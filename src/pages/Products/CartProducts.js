@@ -75,7 +75,7 @@ const CartProducts = () => {
     history.push("/add-payment");
   }
 
-  useEffect(() => {
+
     const fetchUserAddress = async () => {
       try {
         const response = await axios.get('http://20.207.207.62/api/get-user-address-list');
@@ -86,8 +86,24 @@ const CartProducts = () => {
         console.log(err);
       }
     };
-    fetchUserAddress();
-  }, []);
+    useEffect(()=>{
+      fetchUserAddress();
+    },[])
+   
+   
+
+  const deleteAddress= async (data)=>{
+    console.log("data",data)
+    try{
+      const response=await axios.get(`http://20.207.207.62/api/user-address-delete/${data.id}`)
+      // console.log("deleteAddress",response)
+      if(response?.status===200){
+        fetchUserAddress();
+      }
+    }catch(e){
+      console.log(e)
+    }
+  }
 
   return (
     <IonPage id="cart-page">
@@ -260,7 +276,7 @@ const CartProducts = () => {
                 {currentUserAddressData && (
                   <div className="Address">
                     <IonTitle color="dark" className="ion-no-padding">
-                      Delivering to{""}
+                      Delivering to {""}
                       <strong>{currentUserAddressData?.type}</strong>
                     </IonTitle>
                     <IonText className="AddressText">
@@ -279,6 +295,7 @@ const CartProducts = () => {
                   >
                     CHANGE
                   </IonButton>
+                  
                 </div>
               </div>
             </IonCol>
@@ -354,6 +371,12 @@ const CartProducts = () => {
                   >
                     Select
                   </IonButton>
+                  <IonButton 
+                  fill="clear"
+                  onClick={()=>deleteAddress(data)}
+                  >
+                    delete
+                  </IonButton>
                 </div>
               </div>
             ))}
@@ -376,7 +399,7 @@ const CartProducts = () => {
           </IonContent> 
 
         </IonModal>
-        < AddressPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+        < AddressPopup isOpen={isOpen} setIsOpen={setIsOpen} fetchUserAddress={fetchUserAddress} />
       </IonContent>
 
       <LoginPopup

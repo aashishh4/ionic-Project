@@ -14,7 +14,6 @@ import {
   IonSearchbar,
   IonText,
   useIonLoading,
-  useIonModal,
 } from "@ionic/react";
 import Header from "../../components/Header";
 import { bookmarkOutline, star, searchOutline } from "ionicons/icons";
@@ -24,18 +23,20 @@ import axios from "axios";
 import { useAuth } from "../../contexts/CartContext";
 
 const SearchProduct = () => {
+  const [presentLoading] = useIonLoading();
+  const [present, dismiss] = useIonLoading();
+
   const { addToCart } = useAuth();
   const [query, setQuery] = useState("");
-  // console.log('query',query);
+  console.log('query',query);
   const [searchData, setSearchData] = useState([]);
   // console.log("searchData",searchData)
  
-
-
   const handleSubmit = async () => {
     if (!query) {
-      return;
+      return; 
     }
+    present()
     const formdata = new FormData();
     formdata.append("keyword", query);
     formdata.append("limit", 50);
@@ -43,14 +44,23 @@ const SearchProduct = () => {
     const response = await axios.post(
       "http://20.207.207.62/api/product-search-suggestion?keyword=Magic&limit=all&pageno=0",
       formdata
-    ).catch((e) => console.log(e));
+    )
+    dismiss()
+    .catch((e) => console.log(e));
+    // console.log("response",response)
     setSearchData(response?.data?.subcatprod);
   };
 
   const debouncedHandleSubmit = debounce(handleSubmit);
 
-  const handleAdd=(item)=>{
-    addToCart(item)
+  function handleAdd(data) {
+    presentLoading({
+      message: "Adding to cart...",
+      translucent: true,
+      duration: 1000 
+    }).then(() => {
+      addToCart(data);
+    });
   }
   return (
     <IonPage>
@@ -70,7 +80,7 @@ const SearchProduct = () => {
                   fill="clear"
                   onClick={debouncedHandleSubmit}
                 >
-                  <IonIcon color="primary" size="small" icon={searchOutline} />
+                <IonIcon color="primary" size="small" icon={searchOutline} />
                 </IonButton>
               </div>
             </IonCol>
@@ -194,5 +204,4 @@ const SearchProduct = () => {
     </IonPage>
   );
 };
-
 export default SearchProduct;

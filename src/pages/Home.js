@@ -14,6 +14,7 @@ import {
   IonRow,
   IonText,
   IonTitle,
+  useIonLoading,
 } from "@ionic/react";
 import styles from "./Home.module.css";
 import "./Home.css";
@@ -27,6 +28,7 @@ import { useLogoContext } from '../contexts/LogoContext';
 import { useAuth } from '../contexts/CartContext';
 
 const Home = () => {
+  const [presentLoading] = useIonLoading();
   const { addToCart } = useAuth();
   const { headerImage } = useLogoContext();
   const [product, setproduct] = useState([]);
@@ -62,10 +64,18 @@ const Home = () => {
     fetchTrending();
   }, []);
 
-
   function handleAdd(data) {
-    addToCart(data);
+    presentLoading({
+      message: "Adding to cart...",
+      translucent: true,
+      duration: 1000 
+    }).then(() => {
+      addToCart(data);
+    });
   }
+  
+
+
 
   return (
     <IonPage id="home-page" className={styles.homePage}>
@@ -149,7 +159,7 @@ const Home = () => {
                       <IonCardContent className="ProductDetails">
                         <IonText className="ProductTitle"></IonText>
                         <IonText className="ProductBrandname">
-                          <span>{item.brand_name}</span>
+                          {/* <span>{item.brand_name}</span> */}
                         </IonText>
                         <div className="PriceRating">
                           <div>
@@ -254,7 +264,7 @@ const Home = () => {
                       <IonCardContent className="ProductDetails">
                         <IonText className="ProductTitle"></IonText>
                         <IonText className="ProductBrandname">
-                          <span>{item.brand_name}</span>
+                          {/* <span>{item.brand_name}</span> */}
                         </IonText>
                         <div className="PriceRating">
                           <div className="PriceText">

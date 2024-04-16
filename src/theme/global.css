@@ -791,7 +791,7 @@ ion-button {
   text-transform: capitalize;
   font-weight: 600;
   letter-spacing: 0;
-  min-height: 44px;
+  min-height: 44px; 
 }
 
 ion-button.button-default {

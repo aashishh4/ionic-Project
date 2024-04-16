@@ -16,6 +16,7 @@ import {
   IonRow,
   IonText,
   IonTitle,
+  useIonLoading,
 } from "@ionic/react";
 import styles from "./Home.module.css";
 import "./Home.css";
@@ -31,6 +32,8 @@ import axios from "axios";
 import { useAuth } from "../contexts/CartContext";
 
 const ViewExclusiveProduct = () => {
+  const [presentLoading] = useIonLoading();
+
   const { addToCart }=useAuth();
   const [ExclusiveProductdata, setExclusiveProductdata] = useState([])
 
@@ -49,8 +52,14 @@ const ViewExclusiveProduct = () => {
     ExclusiveApiData();
   }, [])
 
-  function handleAdd(item){
-    addToCart(item)
+  function handleAdd(data) {
+    presentLoading({
+      message: "Adding to cart...",
+      translucent: true,
+      duration: 1000 
+    }).then(() => {
+      addToCart(data);
+    });
   }
 
   return (
@@ -135,8 +144,6 @@ const ViewExclusiveProduct = () => {
                             100).toFixed()}% OFF
                         </IonChip>
                       </IonText>
-
-
                       <IonButton
                         className="AddToCartBtn"
                         size="default"

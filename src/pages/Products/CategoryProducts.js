@@ -9,6 +9,7 @@ import {
   IonSegmentButton,
   IonText,
   IonTitle,
+  useIonLoading,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -19,6 +20,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const CategoryProducts = () => {
+  const [present, dismiss] = useIonLoading();
+
   const [subCategoryselect, setsubCategorySelect] = useState("");
   const [subCategoryData, setsubCategoryData] = useState([]);
   const [CategoriesData, setCategoryData] = useState({});
@@ -33,6 +36,7 @@ const CategoryProducts = () => {
 
   useEffect(() => {
     const CategoriesList = async () => {
+      present()
       try {
         const response = await axios.get(`http://20.207.207.62/api/subcategorylist/${slug}`)
         // console.log("CategoryProducts", response)
@@ -41,9 +45,11 @@ const CategoryProducts = () => {
         }
         setCategoryData(response.data.data.categorylist)
         setsubCategoryData(response.data.data.sucate_pro)
+        dismiss();
       }
       catch (error) {
         console.error('Error fetching data:', error);
+        dismiss();
       }
     }
     CategoriesList();
@@ -53,13 +59,17 @@ const CategoryProducts = () => {
   useEffect(() => {
     const getAllCategoriesList = async () => {
       // setAllProduct([])
+    
       try {
+       
         const response = await axios.get(`http://20.207.207.62/api/getSubcatProduct/${subCategoryselect}/10/0`)
         // console.log("getAllCategoryProducts", response)
         setAllProduct(response?.data?.subcatprod)
+        dismiss()
       }
       catch (error) {
         console.error('Error fetching data:', error);
+        
       }
     }
     getAllCategoriesList();
@@ -99,7 +109,7 @@ const CategoryProducts = () => {
             <IonSegmentButton className={item.slug === subCategoryselect ? "segment-button-checked" : ""}
               value={item.slug}
               key={i}
-              onClick={(e) => { setsubCategorySelect(item.slug) }}
+              onClick={(e) => { setsubCategorySelect(item.slug)}}
             >
               <div className="subCategoryCard">
                 <div className="subCategoryThumb">

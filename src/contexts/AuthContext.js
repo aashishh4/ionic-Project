@@ -1,19 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
-
+import React, { createContext, useContext, useState,useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [loginData,setLoginData]=useState({})
+  const [userData, setUserData] = useState(() => {
+    const userDataFromStorage = localStorage.getItem('userData');
+    return userDataFromStorage ? JSON.parse(userDataFromStorage) : {};
+  });
   const [isAuthenticated,setIsAuthenticated]=useState(localStorage.getItem('login') === 'true')
-  // console.log("loginData",loginData)
+  // console.log("userData",userData)
   // console.log("isAuthenticated",isAuthenticated)
   
 
 
   const login = (data) => {
     localStorage.setItem('login', 'true');
-    setLoginData(data)
+    localStorage.setItem('userData', JSON.stringify(data));
+    setUserData(data)
     setIsAuthenticated(true) 
   };
 
@@ -22,10 +25,11 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false)    
   };
   
+
   
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout,userData }}>
       {children}
     </AuthContext.Provider>
   );
@@ -36,7 +40,3 @@ export const useAuth1 = () => {
 };
 
 
-// const [isAuthenticated,setIsAuthenticated]=useState(localStorage.getItem('login') === 'true'):
-//  Yahaan useState() hook ka upyog karke isAuthenticated state aur uski setter
-//   function setIsAuthenticated banayi gayi hai, jiska default value localStorage
-//    se check kiya jata hai ki 'login' ki key ka value 'true' hai ya nahi.
